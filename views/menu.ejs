@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+  <h1>Full Menu</h1>
+ <ul>
+<h1>Menu</h1>
+
+<ul>
+  <% menu.forEach(item => { %>
+    <li>
+      <strong><%= item.name %></strong><br>
+      $<%= item.price.toFixed(2) %><br>
+      Rating: <%= item.rating %>/5<br>
+      <strong>details:<%= item.details %></strong>
+    </li>
+  <% }) %>
+</ul>
+
+</ul>
+</body>
+</html>
