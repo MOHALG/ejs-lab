@@ -53,8 +53,15 @@ const RESTAURANT = {
 };
 
 
+app.get('/', (req, res) => {
+  res.locals.restaurant = RESTAURANT;
+  res.render('home');
+});
+
+
 app.get('/home', (req, res) => {
-  res.send('hello there');
+  res.locals.restaurant = RESTAURANT;
+  res.render('home');
 });
 
 app.get('/menu', (req,res) => {
@@ -69,8 +76,8 @@ app.get('/menu/:category', (req, res) => {
   res.locals.menuItems = RESTAURANT.menu.filter(item => {
     return item.category === category;
   });
+  res.locals.category = category.charAt(0).toUpperCase() + category.slice(1);
 
   res.render('category');
 });
-
 app.listen(3000);
